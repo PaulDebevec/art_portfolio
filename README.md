@@ -1,6 +1,6 @@
 **Art Portfolio Website**
 
-This is my first independent solo project. I wanted to assist my art friend out by creating a portfolio website for them. My intention for this website is to display my knowledge of Ruby on Rails, GitHub/git, HTML & CSS, MVC RESTfulness, and CRUD. Throughout the creation of this site I have used Test Driven Development to ensure functionality throughout the site. 
+This is my first independent solo project. I wanted to assist my art friend out by creating a portfolio website for them. My intention for this website is to display my knowledge of Ruby on Rails, GitHub/git, HTML & CSS, MVC RESTfulness, and CRUD. Throughout the production of this site I have used Test Driven Development to ensure functionality throughout the site. 
 
 * **Rails version**
 
