@@ -1,17 +1,24 @@
-# README
+Art Portfolio Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my first independent solo project. I wanted to assist my art friend out by creating a portfolio website for them. My intention for this website is to display my knowledge of Ruby on Rails, GitHub/git, HTML & CSS, MVC RESTfulness, and CRUD. 
 
-Things you may want to cover:
+* Rails version
+
+Rails 5.2.4.1
 
 * Ruby version
+
+Ruby 2.5.1
 
 * System dependencies
 
 * Configuration
 
 * Database creation
+
+SQL
+rails db:create
+rails db:migrate
 
 * Database initialization
 
