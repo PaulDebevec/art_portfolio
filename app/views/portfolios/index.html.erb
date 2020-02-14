@@ -1,0 +1,8 @@
+<h1>Portfolio Index</h1>
+
+<% @portfolios.each do |portfolio| %>
+  <section id="portfolio-<%= portfolio.id %>">
+    <p><%= portfolio.name %></p>
+    <p><%= portfolio.description %></p>
+  </section>
+<% end %>
