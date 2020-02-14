@@ -1,12 +1,12 @@
-Art Portfolio Website
+**Art Portfolio Website
 
 This is my first independent solo project. I wanted to assist my art friend out by creating a portfolio website for them. My intention for this website is to display my knowledge of Ruby on Rails, GitHub/git, HTML & CSS, MVC RESTfulness, and CRUD. 
 
-* Rails version
+* **Rails version
 
 Rails 5.2.4.1
 
-* Ruby version
+* **Ruby version
 
 Ruby 2.5.1
 
@@ -14,7 +14,7 @@ Ruby 2.5.1
 
 * Configuration
 
-* Database creation
+* **Database creation
 
 SQL
 rails db:create
