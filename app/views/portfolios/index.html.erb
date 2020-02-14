@@ -2,7 +2,7 @@
 
 <% @portfolios.each do |portfolio| %>
   <section id="portfolio-<%= portfolio.id %>">
-    <p><%= portfolio.name %></p>
+    <p><%= link_to "#{portfolio.name}", "/portfolios/#{portfolio.id}" %></p>
     <p><%= portfolio.description %></p>
   </section>
 <% end %>
