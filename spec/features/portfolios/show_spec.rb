@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Portfolio Show Page' do
+RSpec.describe 'Portfolio Show Page', type: :feature do
   describe 'As a visitor' do
     it "When I visit '/portfolios/:portfolio_id' I see the portfolio's name and (optional) description" do
       portfolio_1 = Portfolio.create!(name: "Traditional")
