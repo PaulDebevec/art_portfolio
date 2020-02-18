@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe 'Portfolio Edit Page' do
+describe 'Portfolio Edit Page', type: :feature do
   describe 'As a visitor' do
-    it "On the portfolio index page, I see a link to 'Edit' and when I click this link I see a form to edit the portfolio" do
-      portfolio_1 = Portfolio.create!(name: "Traditional")
-      portfolio_2 = Portfolio.create!(name: "Digital", description: "This portfolio consists of digital artwork")
+    it "On the portfolio index page, I see a link to 'Edit', when clicked I see a form to edit the portfolio" do
+      portfolio_1 = Portfolio.create(name: "Traditional")
+      portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
 
       visit '/portfolios'
 
@@ -18,13 +18,24 @@ describe 'Portfolio Edit Page' do
       click_on 'Submit Changes'
 
       expect(current_path).to eq("/portfolios/#{portfolio_1.id}")
+      expect(page).to have_content("Changes Saved")
       expect(page).to have_content('Traditional')
       expect(page).to have_content('This collection consists of traditional artwork')
     end
 
+    it "I see a link to edit a portfolio from it's show page" do
+      portfolio_1 = Portfolio.create(name: "Traditional")
+      portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
+
+      visit "/portfolios/#{portfolio_2.id}"
+
+      click_link "Edit Portfolio Info"
+      expect(current_path).to eq("/portfolios/#{portfolio_2.id}/edit")
+    end
+
     it "Displays a flash message when I fail to enter the portfolio name" do
-      portfolio_1 = Portfolio.create!(name: "Traditional")
-      portfolio_2 = Portfolio.create!(name: "Digital", description: "This portfolio consists of digital artwork")
+      portfolio_1 = Portfolio.create(name: "Traditional")
+      portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
 
       visit '/portfolios'
 

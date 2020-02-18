@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'As a visitor' do
-  describe 'Portfolio Index Page' do
+describe 'Portfolio Index Page', type: :feature do
+  describe 'As a visitor' do
     it "Shows the name of each portfolio in the system" do
       portfolio_1 = Portfolio.create!(name: "Traditional")
       portfolio_2 = Portfolio.create!(name: "Digital", description: "This portfolio consists of digital artwork")
