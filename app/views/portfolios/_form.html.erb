@@ -1,0 +1,9 @@
+<%= form_tag path, method: method do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, (@portfolio.name if @portfolio) %>
+
+  <%= label_tag :description %>
+  <%= text_field_tag :description, (@portfolio.description if @portfolio)  %>
+
+  <%= submit_tag button_text %>
+<% end %>
