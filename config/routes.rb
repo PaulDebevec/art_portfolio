@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/portfolios/:portfolio_id', to: 'portfolios#show'
   get '/portfolios/:portfolio_id/edit', to: 'portfolios#edit'
   patch '/portfolios/:portfolio_id', to: 'portfolios#update'
+  delete '/portfolios/:portfolio_id', to: 'portfolios#destroy'
 end

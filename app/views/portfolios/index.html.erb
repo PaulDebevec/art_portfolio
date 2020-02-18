@@ -7,5 +7,6 @@
     <p><%= link_to "#{portfolio.name}", "/portfolios/#{portfolio.id}" %></p>
     <p><%= portfolio.description %></p>
     <%= link_to "Edit Portfolio Info", "/portfolios/#{portfolio.id}/edit" %>
+    <%= link_to "Delete Portfolio", "/portfolios/#{portfolio.id}", method: :delete %>
   </section>
 <% end %>

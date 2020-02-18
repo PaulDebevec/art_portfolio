@@ -1,2 +1,4 @@
 <h1><%= @portfolio.name %></h1>
 <p><%= @portfolio.description %></p>
+<%= link_to "Edit Portfolio Info", "/portfolios/#{@portfolio.id}/edit" %>
+<%= link_to "Delete Portfolio", "/portfolios/#{@portfolio.id}", method: :delete %>
