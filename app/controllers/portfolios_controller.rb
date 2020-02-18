@@ -20,6 +20,23 @@ class PortfoliosController < ApplicationController
       render :new
     end
   end
+
+    def edit
+      @portfolio = Portfolio.find(params[:portfolio_id])
+    end
+
+    def update
+      portfolio = Portfolio.find(params[:portfolio_id])
+      portfolio.update(portfolio_params)
+      if portfolio.save
+        flash[:success] = "Changes Saved"
+        redirect_to "/portfolios/#{portfolio.id}"
+      else
+        flash[:error] = portfolio.errors.full_messages.to_sentence
+        redirect_to "/portfolios/#{portfolio.id}/edit"
+      end
+    end
+
   private
 
   def portfolio_params
