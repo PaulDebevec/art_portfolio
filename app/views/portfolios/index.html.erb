@@ -1,8 +1,11 @@
 <h1>Portfolio Index</h1>
 
+<%= link_to "New Portfolio", '/portfolios/new' %>
+
 <% @portfolios.each do |portfolio| %>
   <section id="portfolio-<%= portfolio.id %>">
     <p><%= link_to "#{portfolio.name}", "/portfolios/#{portfolio.id}" %></p>
     <p><%= portfolio.description %></p>
+    <%= link_to "Edit Portfolio Info", "/portfolios/#{portfolio.id}/edit" %>
   </section>
 <% end %>
