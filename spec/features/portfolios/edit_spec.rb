@@ -2,13 +2,15 @@ require 'rails_helper'
 
 describe 'Portfolio Edit Page', type: :feature do
   describe 'As a visitor' do
+    before :each do
+      @admin = User.create( username: "admin",
+                            password: "password",
+                            role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+    end
+
     it "On the portfolio index page, I see a link to 'Edit', when clicked I see a form to edit the portfolio" do
-      admin = User.create(username: "admin",
-                          password: "password",
-                          role: 1)
-
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
       portfolio_1 = Portfolio.create(name: "Traditional")
       portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
 
@@ -30,12 +32,6 @@ describe 'Portfolio Edit Page', type: :feature do
     end
 
     it "I see a link to edit a portfolio from it's show page" do
-      admin = User.create(username: "admin",
-                          password: "password",
-                          role: 1)
-
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
       portfolio_1 = Portfolio.create(name: "Traditional")
       portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
 
@@ -46,12 +42,6 @@ describe 'Portfolio Edit Page', type: :feature do
     end
 
     it "Displays a flash message when I fail to enter the portfolio name" do
-      admin = User.create(username: "admin",
-                          password: "password",
-                          role: 1)
-
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
       portfolio_1 = Portfolio.create(name: "Traditional")
       portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
 
