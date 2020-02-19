@@ -1,8 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'New Portfolio', type: :feature do
-  describe "when I visit portfolio index I see a link for 'New Portfolio' and when I click the link" do
+  describe "As an admin, when I visit the portfolio index I see a link for 'New Portfolio' and when I click the link" do
     it "Takes me to a form page where I may create a new portfolio" do
+      admin = User.create(username: "admin",
+                          password: "password",
+                          role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
       visit '/portfolios'
 
       click_link 'New Portfolio'
@@ -23,6 +29,12 @@ RSpec.describe 'New Portfolio', type: :feature do
     end
 
     it "A portfolio may be created without a description" do
+      admin = User.create(username: "admin",
+                          password: "password",
+                          role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
       visit '/portfolios'
 
       click_link 'New Portfolio'
@@ -39,6 +51,12 @@ RSpec.describe 'New Portfolio', type: :feature do
       end
     end
     it "A portfolio may not be created without a name and displays a flash message" do
+      admin = User.create(username: "admin",
+                          password: "password",
+                          role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
       visit '/portfolios'
 
       click_link 'New Portfolio'

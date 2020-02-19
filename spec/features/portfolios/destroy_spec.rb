@@ -1,8 +1,13 @@
 require 'rails_helper'
 
 describe 'Destroy Portfolio From Portfolio Index Page', type: :feature do
-  describe 'As a visitor' do
+  describe 'As an admin' do
     it "I see a link to destroy the portfolio and when I click this link the portfolio is deleted" do
+      admin = User.create(username: "admin",
+                          password: "password",
+                          role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
       portfolio_1 = Portfolio.create(name: "Traditional")
       portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
       portfolio_3 = Portfolio.create(name: "Random Sketches", description: "Random sketchwork")
@@ -23,6 +28,12 @@ describe 'Destroy Portfolio From Portfolio Index Page', type: :feature do
     end
 
     it "I may delete a portfolio from it's show page" do
+      admin = User.create(username: "admin",
+                          password: "password",
+                          role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
       portfolio_1 = Portfolio.create(name: "Traditional")
       portfolio_2 = Portfolio.create(name: "Digital", description: "This portfolio consists of digital artwork")
       portfolio_3 = Portfolio.create(name: "Random Sketches", description: "Random sketchwork")
