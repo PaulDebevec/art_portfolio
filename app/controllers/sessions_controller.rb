@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.username}!"
-      redirect_to '/dashboard'
+      redirect_to admin_dashboard_path
     else
       flash[:error] = "Sorry, your credentials are incorrect."
       render :new
