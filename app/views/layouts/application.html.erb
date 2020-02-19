@@ -10,12 +10,13 @@
   </head>
 
   <body>
-    <% flash.each do |type, message| %>
-      <h5> <%= message %> </h5>
+    <%= link_to "Portfolios", '/portfolios' %>
+    <% if current_user %>
+      <%= link_to "Log Out", '/logout', method: :delete if current_user %>
     <% end %>
 
-    <% if current_user %>
-      <%= link_to "Portfolios", '/portfolios' if current_user.admin?%>
+    <% flash.each do |type, message| %>
+      <h5> <%= message %> </h5>
     <% end %>
 
     <%= yield %>
