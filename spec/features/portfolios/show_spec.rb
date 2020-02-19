@@ -14,6 +14,8 @@ RSpec.describe 'Portfolio Show Page', type: :feature do
 
       expect(current_path).to eq("/portfolios/#{portfolio_1.id}")
       expect(page).to have_content("Traditional")
+      expect(page).not_to have_content("Edit #{portfolio_1.name} Portfolio Info")
+      expect(page).not_to have_content("Delete Portfolio")
 
       visit '/portfolios'
 
@@ -23,6 +25,8 @@ RSpec.describe 'Portfolio Show Page', type: :feature do
 
       expect(page).to have_content("Digital")
       expect(page).to have_content("This portfolio consists of digital artwork")
+      expect(page).not_to have_content("Edit #{portfolio_1.name} Portfolio Info")
+      expect(page).not_to have_content("Delete Portfolio")
     end
   end
 end

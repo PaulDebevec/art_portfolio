@@ -1,0 +1,6 @@
+<h1>Welcome Index</h1>
+<% if current_user %>
+  <%= link_to "Log Out", '/logout', method: :delete %>
+<% else %>
+  <%= link_to 'Login', '/login' %>
+<% end %>
