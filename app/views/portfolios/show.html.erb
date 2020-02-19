@@ -2,6 +2,6 @@
 <p><%= @portfolio.description %></p>
 
 <% if current_user %>
-  <%= link_to "Edit #{@portfolio.name} Portfolio Info", "/portfolios/#{@portfolio.id}/edit" if current_user.admin?%>
-  <%= link_to "Delete Portfolio", "/portfolios/#{@portfolio.id}", method: :delete if current_user.admin?%>
+  <%= link_to "Edit #{@portfolio.name} Portfolio Info", "/portfolios/#{@portfolio.id}/edit" if current_user.admin? %>
+  <%= link_to "Delete Portfolio", "/portfolios/#{@portfolio.id}", method: :delete if current_user.admin? %>
 <% end %>

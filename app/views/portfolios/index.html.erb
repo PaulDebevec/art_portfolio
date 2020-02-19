@@ -1,6 +1,6 @@
 <h1>Portfolio Index</h1>
 <% if current_user %>
-  <%= link_to "New Portfolio", '/portfolios/new' if current_user.admin?%>
+  <%= link_to "New Portfolio", '/portfolios/new' if current_user.admin? %>
 <% end %>
 
 <% @portfolios.each do |portfolio| %>
@@ -8,8 +8,8 @@
     <p><%= link_to "#{portfolio.name}", "/portfolios/#{portfolio.id}" %></p>
     <p><%= portfolio.description %></p>
     <% if current_user %>
-      <%= link_to "Edit #{portfolio.name} Portfolio Info", "/portfolios/#{portfolio.id}/edit" if current_user.admin?%>
-      <%= link_to "Delete Portfolio", "/portfolios/#{portfolio.id}", method: :delete if current_user.admin?%>
+      <%= link_to "Edit #{portfolio.name} Portfolio Info", "/portfolios/#{portfolio.id}/edit" if current_user.admin? %>
+      <%= link_to "Delete Portfolio", "/portfolios/#{portfolio.id}", method: :delete if current_user.admin? %>
     <% end %>
   </section>
 <% end %>
