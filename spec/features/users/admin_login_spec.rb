@@ -5,11 +5,7 @@ RSpec.describe "Admin login Screen" do
 
     admin = User.create(username: "admin", password: "password", role: 1)
 
-    visit "/"
-
-    click_on "Login"
-
-    expect(current_path).to eq("/login")
+    visit "/login"
 
     fill_in :username, with: "#{admin.username}"
     fill_in :password, with: "#{admin.password}"
@@ -23,9 +19,7 @@ RSpec.describe "Admin login Screen" do
   it "cannot log in with bad credentials" do
     admin = User.create(username: "admin", password: "password", role: 1)
 
-    visit "/"
-
-    click_on "Login"
+    visit "/login"
 
     fill_in :username, with: admin.username
     fill_in :password, with: "incorrect password"
@@ -39,9 +33,7 @@ RSpec.describe "Admin login Screen" do
   it "admin can log out" do
     admin = User.create(username: "admin", password: "password", role: 1)
 
-    visit "/"
-
-    click_on "Login"
+    visit "/login"
 
     fill_in :username, with: admin.username
     fill_in :password, with: admin.password
@@ -50,10 +42,10 @@ RSpec.describe "Admin login Screen" do
     expect(current_path).to eq('/admin/dashboard')
 
     visit '/'
+
     click_link "Log Out"
 
     expect(current_path).to eq('/')
-    expect(page).to have_content('Login')
     expect(page).not_to have_content('Log Out')
   end
 end
